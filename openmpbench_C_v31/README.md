@@ -1,51 +1,37 @@
-/****************************************************************************
-*                                                                           *
-*             OpenMP MicroBenchmark Suite - Version 3.1                     *
-*                                                                           *
-*                            produced by                                    *
-*                                                                           *
-*             Mark Bull, Fiona Reid and Nix Mc Donnell                      *
-*                                                                           *
-*                                at                                         *
-*                                                                           *
-*                Edinburgh Parallel Computing Centre                        *
-*                                                                           *
-*         email: markb@epcc.ed.ac.uk or fiona@epcc.ed.ac.uk                 *
-*                                                                           *
-*                                                                           *
-*      This version copyright (c) The University of Edinburgh, 2015.        *
-*                                                                           *
-*                                                                           *
-*  Licensed under the Apache License, Version 2.0 (the "License");          *
-*  you may not use this file except in compliance with the License.         *
-*  You may obtain a copy of the License at                                  *
-*                                                                           *
-*      http://www.apache.org/licenses/LICENSE-2.0                           *
-*                                                                           *
-*  Unless required by applicable law or agreed to in writing, software      *
-*  distributed under the License is distributed on an "AS IS" BASIS,        *
-*  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. *
-*  See the License for the specific language governing permissions and      *
-*  limitations under the License.                                           *
-*                                                                           *
-****************************************************************************/
 
-===============
- Licence
-===============
-This software is released under the licence in Licence.txt
+                                                                      
+ #            OpenMP MicroBenchmark Suite - Version 3.1                     
+                                                                           
+produced by                                    
+                                                                           
+Mark Bull, Fiona Reid and Nix McDonnell                      
+                                                                          
+at                                         
+                                                                           
+EPCC, University of Edinburgh                        
+                                                                           
+email: m.bull@epcc.ed.ac.uk            
+                                                                           
+                                                                           
+This version copyright (c) The University of Edinburgh, 2015.        
+                                                                           
+                                                                           
+Licensed under the Apache License, Version 2.0 (the "License"): you may not use this file except in compliance with the License.         
+You may obtain a copy of the License at (http://www.apache.org/licenses/LICENSE-2.0)                           
+                                                                           
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.                                           
+                                                                          
 
-===============
- Introduction
-===============
+# Introduction
+
 Overheads due to synchronisation, loop scheduling, array operations and 
 task scheduling are an important factor in determining the performance of 
 shared memory parallel programs. We have designed a set of microbenchmarks 
 to measure these classes of overhead for language constructs in OpenMP. 
 
-===============
- Installation
-===============
+
+# Installation
+
  1. Unpack the tar file
 
  2. Edit the Makefile.defs as follows:
@@ -70,16 +56,9 @@ to measure these classes of overhead for language constructs in OpenMP.
     "make IDA=arraysize prog" where arraysize is a positive integer. 
 
 
-Example Makefile.defs.* files are supplied for several machines and
-compiler versions, e.g. 
-	 Makefile.defs.hector.* - Cray XE6 
-	 Makefile.defs.magny0.* - 48 core AMD Magny Cours machine
-	 Makefile.defs.stokes.*	- SGI Altix ICE 8200EX
 
 
-===============
- Running
-===============
+# Running
 
 1. Set OMP_NUM_THREADS to the number of OpenMP threads you want to run with, 
    e.g. export OMP_NUM_THREADS = 4
@@ -93,9 +72,8 @@ compiler versions, e.g.
    this to a file. ./benchmark --help will give the usage options. 
 
 
-=================
-Additional notes
-=================
+# Additional notes
+
 
  1. If you encounter problems with the value of innerreps becoming too 
     large (an error will be reported) try recompiling with a lower level of 
