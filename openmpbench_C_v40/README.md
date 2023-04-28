@@ -74,9 +74,45 @@ Example Makefile.defs.* files are supplied for GNU, Cray, AMD and Intel compiler
 	
 	`--delay-length <delay-length>` (default auto-generated based on processor speed)
 
-=================
-Additional notes
-=================
+# Measurements
+	
+The benchmark programs make the following measurements. A single measurement can be selcted using the `--measureonly` flag. 
+	
+## synchbench
+	
+**PARALLEL** parallel region construct
+	
+**FOR** worksharing for construct
+	
+**PARALLEL_FOR** combined parralle region and worksharing for construct 
+	
+**BARRIER** barrier construct
+	
+**BARRIER_VAR** barrier construct variation one thread arrives late 
+	
+**SINGLE** single construct
+	
+**CRITICAL** critical construct 
+	
+**LOCK_CONTENDED** lock/unlock pair, contended 
+	
+**LOCK_CONTENDED_HINT**  lock/unlock pair, contended, with contendend hint   
+	
+**LOCK_UNCONTENDED** lock/unlock pair, uncontended
+	
+**LOCK_UNCONTENDED_HINT** lock/unlock pair, uncontended, with uncontendend hint   
+	
+**ORDERED** ordered construct
+	
+**ATOMIC** atomic update construct 
+	
+**ATOMIC_SEQCST** atomic update construct with seq_cst modifier
+	
+**REDUCTION** scalar reduction clause 
+    
+	
+# Additional notes
+
 
  1. If you encounter problems with the value of innerreps becoming too 
     large (an error will be reported) try recompiling with a lower level of 
