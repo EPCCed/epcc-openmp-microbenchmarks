@@ -186,7 +186,6 @@ The benchmark programs make the following measurements. A single measurement can
     results obtained.
 
  3. You should use whatever mechanisms are at your disposal to ensure that 
-    threads have exclusive or almost exclusive access to processors. You 
+    threads have exclusive or almost exclusive access to hardware resources. You 
     should rejects runs where the standard deviation or number of outliers is 
-    large: this is a good indication that the benchmark did not have almost 
-    exclusive access to processors. 
+    large. 
