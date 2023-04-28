@@ -22,17 +22,22 @@ You may obtain a copy of the License at (http://www.apache.org/licenses/LICENSE-
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
 
 
+# Changes from Version 3.0 
+
+1. Additional measurements
+2. Improved control over parameter settings
+3. Improved statistics 
+4. Minor bug fixes 
 
 
-
- Installation
+ # Installation
 
  1. Clone the repository
  2. `cd openmpbench_C_v40`
  3. Edit the Makefile.defs as follows:
     * Set CC to the C compiler you wish to use (e.g. gcc pgcc icc xlc etc)
     * Set CFLAGS to any required C compiler flags to enable processing of 
-      OpenMP directives (e.g. -fopenmp -mp, -omp); standard optimisation is 
+      OpenMP directives (e.g. -fopenmp, -mp, -omp); standard optimisation is 
       also recommended (e.g. -O).
     * Set LDFLAGS to any required C linker flags
     * Set CPPFLAGS to any required flags to 
@@ -60,9 +65,9 @@ Example Makefile.defs.* files are supplied for GNU, Cray, AMD and Intel compiler
    ./\<benchmark\> 
 
    The output will go to STDOUT and thus you will probably want to re-direct 
-   this to a file. ./<benchmark> -h will give the usage options.
-	
-   Available options are: 
+   this to a file. 
+   
+   ./\<benchmark\> -h will give the usage options. Available options are: 
 	
 	`--measureonly <selected measurement>`  (runs all by default) 
 	
@@ -72,11 +77,11 @@ Example Makefile.defs.* files are supplied for GNU, Cray, AMD and Intel compiler
 	
 	`--delay-time <delay-time in microseconds>` (default 0.1000 microseconds)
 	
-	`--delay-length <delay-length>` (default auto-generated based on processor speed)
+	`--delay-length <delay-length in iterations>` (default auto-generated based on processor speed)
 
 # Measurements
 	
-The benchmark programs make the following measurements. A single measurement can be selcted using the `--measureonly` flag. 
+The benchmark programs make the following measurements. A single measurement can be selected using the `--measureonly` flag. 
 	
 ## synchbench
 	
@@ -84,11 +89,11 @@ The benchmark programs make the following measurements. A single measurement can
 	
 **FOR** worksharing for construct
 	
-**PARALLEL_FOR** combined parralle region and worksharing for construct 
+**PARALLEL_FOR** combined parallel region and worksharing for construct 
 	
 **BARRIER** barrier construct
 	
-**BARRIER_VAR** barrier construct variation one thread arrives late 
+**BARRIER_VAR** barrier construct variant - one thread arrives late 
 	
 **SINGLE** single construct
 	
@@ -109,7 +114,64 @@ The benchmark programs make the following measurements. A single measurement can
 **ATOMIC_SEQCST** atomic update construct with seq_cst modifier
 	
 **REDUCTION** scalar reduction clause 
-    
+	
+## schedbench
+
+**STATIC** static schedule, no chunksize 
+	
+**STATIC_MONOTONIC** static schedule, no chunksize, monotonic modifier 
+	
+**STATICN** static schedule with chunksize
+	
+**STATICN_MONOTONIC** static schedule with chunksize, monotonic modifier
+	
+**DYNAMIC** dynamic schedule with chunksize
+	
+**DYNAMIC_MONOTONIC** dynamic schedule with chunksize, monotonic modifier
+	
+**GUIDED** guided schedule with chunksize
+	
+**GUIDED_MONOTONIC** schedule with chunksize, monotonic modifier
+	
+**TASKLOOP** taskloop construct 
+	
+## arraybench 
+	
+**PRIVATE** private clause 
+	
+**FIRSTPRIVATE** firstprivate clause 
+	
+**COPYPRIVATE** copyprivate clause on single directive 
+	
+**COPYIN** copying clause 
+	
+## taskbench
+
+**PARALLEL_TASK** all threads generate tasks 
+	
+**PARALLEL_TASK_DEPS** all threads generate tasks with dependencies 
+	
+**MASTER_TASK** master thread only generates tasks 
+	
+**MASTER_TASK_DEPS** master thread only generates tasks with dependencies 
+	
+**MASTER_TASK_BUSY_SLAVES** master thread only generates tasks, while other threads just compute
+	
+**CONDITIONAL_TASK** all threads generate tasks with if clause 
+	
+**TASK_WAIT** taskwait construct
+	
+**TASK_BARRIER** barrier construct with outstanding tasks 
+	
+**NESTED_TASK** all threads generate nested tasks 
+	
+**NESTED_MASTER_TASK** master thread only generates nested tasks 
+	
+**BRANCH_TASK_TREE** binary tree of nested tasks, computation at all levels 
+	
+**LEAF_TASK_TREE** binary tree of nested tasks, computation at leaves only 
+
+	
 	
 # Additional notes
 
