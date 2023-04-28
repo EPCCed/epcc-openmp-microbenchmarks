@@ -21,63 +21,58 @@ You may obtain a copy of the License at (http://www.apache.org/licenses/LICENSE-
                                                                            
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
 
-===============
- Introduction
-===============
-Overheads due to synchronisation, loop scheduling, array operations and 
-task scheduling are an important factor in determining the performance of 
-shared memory parallel programs. We have designed a set of microbenchmarks 
-to measure these classes of overhead for language constructs in OpenMP. 
 
-===============
+
+
+
  Installation
-===============
- 1. Unpack the tar file
 
- 2. Edit the Makefile.defs as follows:
+ 1. Clone the repository
+ 2. `cd openmpbench_C_v40`
+ 3. Edit the Makefile.defs as follows:
     * Set CC to the C compiler you wish to use (e.g. gcc pgcc icc xlc etc)
     * Set CFLAGS to any required C compiler flags to enable processing of 
       OpenMP directives (e.g. -fopenmp -mp, -omp); standard optimisation is 
       also recommended (e.g. -O).
     * Set LDFLAGS to any required C linker flags
-    * Set CPP to the local C-Preprocessor (e.g. /usr/local/bin/cpp) to 
+    * Set CPPFLAGS to any required flags to 
       make the C compiler invoke cpp on .c and .h files
-    * To benchmark OpenMP 2.0 features can be invoked by setting the flag 
-	OMPFLAG = -DOMPVER2
-    * To benchmark OpenMP 2.0 & 3.0 features can be invoked by setting the flag 
-	OMPFLAG = -DOMPVER2 -DOMPVER3
-    * If neither of these flags are set then OpenMP 1.0 compatibility is 
-      ensured.
+    * Set LIBS to any flags for linking with required libraries. 
+    
 
 3. Type "make" to build all 4 benchmarks or "make benchmark" where benchmark 
     is one of syncbench, taskbench, schedbench. By default "make" will build 
-    executables with array sizes ranging in powers of 3 from 1 to 59049. To 
+    arrybench executables with array sizes ranging in powers of 3 from 1 to 59049. To 
     build the array benchmark with an array size of arraysize, use 
     "make IDA=arraysize prog" where arraysize is a positive integer. 
 
 
-Example Makefile.defs.* files are supplied for several machines and
-compiler versions, e.g. 
-	 Makefile.defs.hector.* - Cray XE6 
-	 Makefile.defs.magny0.* - 48 core AMD Magny Cours machine
-	 Makefile.defs.stokes.*	- SGI Altix ICE 8200EX
+Example Makefile.defs.* files are supplied for GNU, Cray, AMD and Intel compilers
 
 
-===============
- Running
-===============
+# Running
 
 1. Set OMP_NUM_THREADS to the number of OpenMP threads you want to run with, 
    e.g. export OMP_NUM_THREADS = 4
-   OMP_NUM_THREADS should be less than or equal to the number of physical 
-   cores available to you. 
+   
 
 2. Run the benchmark with:
-   ./benchmark 
+   ./\<benchmark\> 
 
    The output will go to STDOUT and thus you will probably want to re-direct 
-   this to a file. ./benchmark -h will give the usage options. 
-
+   this to a file. ./<benchmark> -h will give the usage options.
+	
+   Available options are: 
+	
+	`--measureonly <selected measurement>`  (runs all by default) 
+	
+	`--outer-repetitions <outer-repetitions>` (default 20)
+	
+	`--test-time <target-test-time in microseconds>` (default 1000.00 microseconds)
+	
+	`--delay-time <delay-time in microseconds>` (default 0.1000 microseconds)
+	
+	`--delay-length <delay-length>` (default auto-generated based on processor speed)
 
 =================
 Additional notes
