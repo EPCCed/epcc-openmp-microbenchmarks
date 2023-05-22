@@ -1,10 +1,10 @@
 /****************************************************************************
 *                                                                           *
-*             OpenMP MicroBenchmark Suite - Version 4.0beta                 *
+*             OpenMP MicroBenchmark Suite - Version 4.0                     *
 *                                                                           *
 *                            produced by                                    *
 *                                                                           *
-*             Mark Bull, Fiona Reid and Nix McDonnell                       *
+*                             Mark Bull                                     *
 *                                                                           *
 *                                at                                         *
 *                                                                           *
@@ -13,7 +13,7 @@
 *                    email: m.bull@epcc.ed.ac.uk                            *
 *                                                                           *
 *                                                                           *
-*      This version copyright (c) The University of Edinburgh, 2021.        *
+*      This version copyright (c) The University of Edinburgh, 2023.        *
 *                                                                           *
 *                                                                           *
 *  Licensed under the Apache License, Version 2.0 (the "License");          *
@@ -70,7 +70,8 @@ double testmed;          // The median test time in microseconds for
 
 void dofile(char *filename);/* Read a file, parse, render back, etc. */
 void usage(char *argv[]) {
-    printf("Usage: %s.x \n"
+    printf("Usage: %s \n"
+	   "\t--measureonly <selected measurement> (runs all by default)\n"
 	   "\t--outer-repetitions <outer-repetitions> (default %d)\n"
 	   "\t--test-time <target-test-time> (default %0.2f microseconds)\n"
 	   "\t--delay-time <delay-time> (default %0.4f microseconds)\n"
@@ -112,7 +113,7 @@ void parse_args(int argc, char *argv[]) {
 	    usage(argv);
 	    exit(EXIT_SUCCESS);
 
-        } else if (strcmp(argv[arg], "--type")==0) {
+        } else if (strcmp(argv[arg], "--measureonly")==0) {
 	    strcpy(type, argv[++arg]);
 	} else {
 	    printf("Invalid parameters: %s\n", argv[arg]);
@@ -332,7 +333,7 @@ void init(int argc, char **argv)
 
     times = malloc((outerreps) * sizeof(double));
 
-    printf("Running OpenMP benchmark version 4.0beta\n"
+    printf("Running OpenMP benchmark version 4.0\n"
 	   "\t%d thread(s)\n"
 	   "\t%d outer repetitions\n"
 	   "\t%0.2f test time (microseconds)\n"
