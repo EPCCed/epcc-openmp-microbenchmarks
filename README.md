@@ -1,4 +1,4 @@
-#            OpenMP MicroBenchmark Suite
+#           EPCC OpenMP MicroBenchmark Suite
 
 This repository contains the source code for the EPCC OpenMP microbenchmark suite. The directory `openmpbench_C_v31` contains Version 3.1, the "classic" version that has was previosuly availble from the EPCC website.
 The directory `openmpbench_C_v40` contains a new version, 4.0, which has some additional measurements as well as improved user control and better statistics reporting. 
