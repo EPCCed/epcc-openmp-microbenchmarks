@@ -101,11 +101,11 @@ The benchmark programs make the following measurements. A single measurement can
 	
 **LOCK_CONTENDED** lock/unlock pair, contended 
 	
-**LOCK_CONTENDED_HINT**  lock/unlock pair, contended, with contendend hint   **NEW**
+**LOCK_CONTENDED_HINT**  lock/unlock pair, contended, with contended hint   **NEW**
 	
 **LOCK_UNCONTENDED** lock/unlock pair, uncontended **NEW**
 	
-**LOCK_UNCONTENDED_HINT** lock/unlock pair, uncontended, with uncontendend hint   **NEW**
+**LOCK_UNCONTENDED_HINT** lock/unlock pair, uncontended, with uncontended hint   **NEW**
 	
 **ORDERED** ordered construct
 	
