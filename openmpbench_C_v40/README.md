@@ -81,7 +81,7 @@ Example Makefile.defs.* files are supplied for GNU, Cray, AMD and Intel compiler
 
 # Measurements
 	
-The benchmark programs make the following measurements. A single measurement can be selected using the `--measureonly` flag. 
+The benchmark programs make the following measurements. A single measurement can be selected using the `--measureonly` flag. New measurements added in this version are indicated with **NEW**.
 	
 ## synchbench
 	
@@ -93,7 +93,7 @@ The benchmark programs make the following measurements. A single measurement can
 	
 **BARRIER** barrier construct
 	
-**BARRIER_VAR** barrier construct variant - one thread arrives late 
+**BARRIER_VAR** barrier construct variant - one thread arrives late **NEW**
 	
 **SINGLE** single construct
 	
@@ -101,17 +101,17 @@ The benchmark programs make the following measurements. A single measurement can
 	
 **LOCK_CONTENDED** lock/unlock pair, contended 
 	
-**LOCK_CONTENDED_HINT**  lock/unlock pair, contended, with contendend hint   
+**LOCK_CONTENDED_HINT**  lock/unlock pair, contended, with contendend hint   **NEW**
 	
-**LOCK_UNCONTENDED** lock/unlock pair, uncontended
+**LOCK_UNCONTENDED** lock/unlock pair, uncontended **NEW**
 	
-**LOCK_UNCONTENDED_HINT** lock/unlock pair, uncontended, with uncontendend hint   
+**LOCK_UNCONTENDED_HINT** lock/unlock pair, uncontended, with uncontendend hint   **NEW**
 	
 **ORDERED** ordered construct
 	
 **ATOMIC** atomic update construct 
 	
-**ATOMIC_SEQCST** atomic update construct with seq_cst modifier
+**ATOMIC_SEQCST** atomic update construct with seq_cst modifier **NEW**
 	
 **REDUCTION** scalar reduction clause 
 	
@@ -119,21 +119,21 @@ The benchmark programs make the following measurements. A single measurement can
 
 **STATIC** static schedule, no chunksize 
 	
-**STATIC_MONOTONIC** static schedule, no chunksize, monotonic modifier 
+**STATIC_MONOTONIC** static schedule, no chunksize, monotonic modifier **NEW**
 	
 **STATICN** static schedule with chunksize
 	
-**STATICN_MONOTONIC** static schedule with chunksize, monotonic modifier
+**STATICN_MONOTONIC** static schedule with chunksize, monotonic modifier **NEW**
 	
 **DYNAMIC** dynamic schedule with chunksize
 	
-**DYNAMIC_MONOTONIC** dynamic schedule with chunksize, monotonic modifier
+**DYNAMIC_MONOTONIC** dynamic schedule with chunksize, monotonic modifier **NEW**
 	
 **GUIDED** guided schedule with chunksize
 	
-**GUIDED_MONOTONIC** schedule with chunksize, monotonic modifier
+**GUIDED_MONOTONIC** schedule with chunksize, monotonic modifier **NEW**
 	
-**TASKLOOP** taskloop construct 
+**TASKLOOP** taskloop construct **NEW**
 	
 ## arraybench 
 	
