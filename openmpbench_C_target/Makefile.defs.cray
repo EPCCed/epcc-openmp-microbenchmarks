@@ -1,0 +1,4 @@
+CC=cc 
+CFLAGS = -fopenmp -O0 
+LDFLAGS = -fopenmp  
+LIBS = -lm  

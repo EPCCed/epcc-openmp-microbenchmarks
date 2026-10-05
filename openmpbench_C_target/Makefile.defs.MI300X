@@ -1,0 +1,9 @@
+# =========================================
+# COSMA5 (MI300X) - AMD Clang OpenMP Offloading
+# =========================================
+
+CC       = /opt/rocm/bin/amdclang
+CFLAGS   = -O0 -fopenmp \
+           -fopenmp-targets=amdgcn-amd-amdhsa \
+           -Xopenmp-target=amdgcn-amd-amdhsa -march=gfx942 \
+           -lm
