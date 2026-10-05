@@ -101,6 +101,14 @@ void parse_args(int argc, char *argv[]) {
 		exit(EXIT_FAILURE);
 	    }
 
+	} else if (strcmp(argv[arg], "--delay-length") == 0) {
+	    delaylength = atoi(argv[++arg]);
+	    if (delaylength == 0) {
+		printf("Invalid integer:--delay-length: %s\n", argv[arg]);
+		usage(argv);
+		exit(EXIT_FAILURE);
+	    }
+
 	} else if (strcmp(argv[arg], "--test-time") == 0) {
 	    targettesttime = atof(argv[++arg]);
 	    if (targettesttime == 0) {
@@ -329,7 +337,9 @@ void init(int argc, char **argv)
     if (delaytime == -1.0) {
 	delaytime = DEFAULT_DELAY_TIME;
     }
-    delaylength = getdelaylengthfromtime(delaytime); 
+    if (delaylength== -1) {
+    delaylength = getdelaylengthfromtime(delaytime);
+    }
 
     times = malloc((outerreps) * sizeof(double));
 
