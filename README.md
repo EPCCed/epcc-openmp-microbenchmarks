@@ -1,7 +1,7 @@
-#           EPCC OpenMP MicroBenchmark Suite
+# EPCC OpenMP Microbenchmark Suite
 
-This repository contains the source code for the EPCC OpenMP microbenchmark suite. The directory `openmpbench_C_v31` contains Version 3.1, the "classic" version that has was previosuly availble from the EPCC website.
-The directory `openmpbench_C_v40` contains a new version, 4.0, which has some additional measurements as well as improved user control, more sensible defaults and additional statistics reporting.
+This repository contains the source code for the EPCC OpenMP microbenchmark suite. The directory `openmpbench_C_v31` contains Version 3.1, the "classic" version previously available from the EPCC website.
+The directory `openmpbench_C_v40` contains Version 4.0, which has additional measurements, improved user control, more sensible defaults and additional statistics reporting.
 
 The directory [openmpbench_C_target](openmpbench_C_target/) contains the OpenMP GPU target-offload microbenchmark associated with the IWOMP 2026 paper by Weiyu Tu, J. Mark Bull and James Richings. It has its own build and reproducibility notes.
 
